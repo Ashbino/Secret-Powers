@@ -1,0 +1,110 @@
+# ============================================================
+#  SecretPowers configuration
+#  Run /sp admin reload after editing. Countdown settings apply
+#  the next time a countdown starts.
+# ============================================================
+
+event:
+  preparation-minutes: 20
+  # Seconds of "final countdown" (Phase B) before the SMP starts.
+  final-countdown-seconds: 10
+  # Public countdown announcements at these minutes remaining.
+  announce-at-minutes: [20, 10, 5, 1]
+  # Announcements during the final countdown (seconds remaining).
+  final-announce-at-seconds: [10, 5, 3, 2, 1]
+
+preparation:
+  # PvP during preparation and the final countdown.
+  pvp-enabled: false
+  # false = powers cannot be used until the SMP starts (spec default).
+  # true  = players may test powers during PREPARATION only.
+  allow-power-testing: false
+
+assignment:
+  # false = unique powers while enough are unassigned.
+  allow-duplicates: false
+  # Players with no power who join mid-event get one (once, forever).
+  assign-late-joiners: true
+
+activation:
+  # Key item. Right-click it to use your power.
+  item-material: NETHER_STAR
+  item-name: "<gradient:#ffd700:#b8860b>Power Core</gradient>"
+  preferred-slot: 8
+  # ACTIONBAR or CHAT (private to the player either way).
+  cooldown-feedback: ACTIONBAR
+  feedback-throttle-seconds: 2
+
+teams:
+  max-size: 4
+  allow-player-invites: true
+  invite-expire-seconds: 60
+
+announcements:
+  # Public phase announcements/titles. Power names are NEVER public.
+  broadcast-phase-changes: true
+
+powers:
+  phantom:
+    enabled: true
+    cooldown: 20
+    max-range: 8.0
+  juggernaut:
+    enabled: true
+    cooldown: 60
+    duration: 5
+    resistance-amplifier: 1   # 0 = Resistance I, 1 = II
+    slowness-amplifier: 1
+  stormcaller:
+    enabled: true
+    cooldown: 45
+    range: 15.0
+    deal-damage: true         # real lightning (damages entities)
+    set-fire: false           # allow lightning to leave fire
+  ghost:
+    enabled: true
+    cooldown: 60
+    duration: 5
+    hide-held-items: true
+    hide-armor: true
+  lifebinder:
+    enabled: true
+    cooldown: 30
+    heal-amount: 4.0          # health points (2 = one heart)
+    range: 6.0
+    require-line-of-sight: true
+    heal-self-if-no-teammate: true
+  skybound:
+    enabled: true
+    cooldown: 25
+    upward-velocity: 1.4
+    max-velocity: 2.0         # hard safety cap
+    slow-fall-seconds: 4      # prevents fall damage from the leap
+  soulthief:
+    enabled: true
+    cooldown: 10              # anti-spam between steals
+    max-levels-stolen: 3
+  frostbite:
+    enabled: true
+    cooldown: 30
+    duration: 3
+    range: 8.0
+    slowness-amplifier: 2
+  inferno:
+    enabled: true
+    cooldown: 45
+    duration: 5
+    aura-radius: 3.0
+    burn-enemies: true
+    burn-seconds: 3
+  forcewave:
+    enabled: true
+    cooldown: 25
+    range: 5.0
+    strength: 1.2
+    max-velocity: 2.0
+    affect-teammates: false
+
+debug:
+  # Console only. Never logs power names.
+  enabled: false
