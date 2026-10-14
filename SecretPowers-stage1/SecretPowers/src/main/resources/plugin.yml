@@ -1,0 +1,45 @@
+name: SecretPowers
+version: '${version}'
+main: com.thegildedking.secretpowers.SecretPowersPlugin
+api-version: '1.21'
+description: Secret random powers for a private SMP.
+author: TheGildedKing
+
+commands:
+  sp:
+    description: SecretPowers main command
+    usage: /sp help
+    aliases: [secretpowers]
+
+permissions:
+  secretpowers.use:
+    description: Use the basic player commands
+    default: true
+  secretpowers.team:
+    description: Use team commands
+    default: true
+  secretpowers.admin:
+    description: Use all admin commands
+    default: op
+    children:
+      secretpowers.admin.start: true
+      secretpowers.admin.stop: true
+      secretpowers.admin.assign: true
+      secretpowers.admin.reroll: true
+      secretpowers.admin.phase: true
+      secretpowers.admin.reload: true
+      secretpowers.admin.teams: true
+  secretpowers.admin.start:
+    default: op
+  secretpowers.admin.stop:
+    default: op
+  secretpowers.admin.assign:
+    default: op
+  secretpowers.admin.reroll:
+    default: op
+  secretpowers.admin.phase:
+    default: op
+  secretpowers.admin.reload:
+    default: op
+  secretpowers.admin.teams:
+    default: op
